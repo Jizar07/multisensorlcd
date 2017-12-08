@@ -1,30 +1,5 @@
-/*
-  .______   .______    __    __   __    __          ___      __    __  .___________.  ______   .___  ___.      ___   .___________. __    ______   .__   __.
-  |   _  \  |   _  \  |  |  |  | |  |  |  |        /   \    |  |  |  | |           | /  __  \  |   \/   |     /   \  |           ||  |  /  __  \  |  \ |  |
-  |  |_)  | |  |_)  | |  |  |  | |  |__|  |       /  ^  \   |  |  |  | `---|  |----`|  |  |  | |  \  /  |    /  ^  \ `---|  |----`|  | |  |  |  | |   \|  |
-  |   _  <  |      /  |  |  |  | |   __   |      /  /_\  \  |  |  |  |     |  |     |  |  |  | |  |\/|  |   /  /_\  \    |  |     |  | |  |  |  | |  . `  |
-  |  |_)  | |  |\  \-.|  `--'  | |  |  |  |     /  _____  \ |  `--'  |     |  |     |  `--'  | |  |  |  |  /  _____  \   |  |     |  | |  `--'  | |  |\   |
-  |______/  | _| `.__| \______/  |__|  |__|    /__/     \__\ \______/      |__|      \______/  |__|  |__| /__/     \__\  |__|     |__|  \______/  |__| \__|
-
-  Thanks much to @corbanmailloux for providing a great framework for implementing flash/fade with HomeAssistant https://github.com/corbanmailloux/esp-mqtt-rgb-led
-
-  To use this code you will need the following dependancies: 
-  
-  - Support for the ESP8266 boards. 
-        - You can add it to the board manager by going to File -> Preference and pasting http://arduino.esp8266.com/stable/package_esp8266com_index.json into the Additional Board Managers URL field.
-        - Next, download the ESP8266 dependancies by going to Tools -> Board -> Board Manager and searching for ESP8266 and installing it.
-  
-  - You will also need to download the follow libraries by going to Sketch -> Include Libraries -> Manage Libraries
-      - DHT sensor library 
-      - Adafruit unified sensor
-      - PubSubClient
-      - ArduinoJSON
-    
-  UPDATE 16 MAY 2017 by Knutella - Fixed MQTT disconnects when wifi drops by moving around Reconnect and adding a software reset of MCU
-             
-  UPDATE 23 MAY 2017 - The MQTT_MAX_PACKET_SIZE parameter may not be setting appropriately do to a bug in the PubSub library. If the MQTT messages are not being transmitted as expected please you may need to change the MQTT_MAX_PACKET_SIZE parameter in "PubSubClient.h" directly.
-
-*/
+// MOST OF THE CREDITS FOR THIS CODE GOES TO BRUH
+// I ONLY MODIFIED TO FIT MY NEEDS
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h> // LCD
@@ -44,7 +19,7 @@
 #define wifi_password ""
 
 // Add your MQTT info | Adicione sua informação do MQTT
-#define mqtt_server "192.168.1.41"
+#define mqtt_server ""
 #define mqtt_user "" 
 #define mqtt_password ""
 #define mqtt_port 1883
